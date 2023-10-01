@@ -5,14 +5,13 @@ Przewidywany plan zajęć kształtuje się następująco:
 * przedstawienie zasad zaliczenia przedmiotu,
 * przedstawienie planu tematów i zajęć na cały semestr,
 * przedstawienie sugerowanej literatury przedmiotu,
-* wprowadzenie do systemu kontroli wersji Git oraz środowiska Github.
+* przedstawienie programów demonstracyjnych.
 
 ### Zasady zaliczenia przedmiotu
 Zajęcia i obecność:
 * w trakcie semestru zostanie zrealizowanych 15 zajęć laboratoryjnych,
 * obecność na nich jest obowiązkowa,
-* prowadzący akceptuje dwie nieusprawiedliwione nieobecności,
-* prowadzący nagradza studentów za ich aktywność na zajęciach "plusami".
+* prowadzący akceptuje dwie nieusprawiedliwione nieobecności.
 
 ### Listy zadań:
 * laboratoria 1-7 poruszają cztery tematy, które kończą się kolokwium w połowie semestru,
@@ -55,3 +54,61 @@ finalGrade = \frac{k_{1} + k_{2}}{2} + p \times 0.05 - n \times 0.1
 
 ### Literatura uzupełniająca
 * S. G. Kochan , *Język C. Kompendium wiedzy.* Wydanie IV, Helion, Gliwice 2015.
+
+### Programy demonstracyjne w C
+
+* program wypisujący "Hello, World!":
+
+```php
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+* program obliczający pole prostokąta:
+
+```php
+#include <stdio.h>
+
+int main() {
+    float dlugosc, szerokosc, pole;
+
+    printf("Podaj długość prostokąta: ");
+    scanf("%f", &dlugosc);
+
+    printf("Podaj szerokość prostokąta: ");
+    scanf("%f", &szerokosc);
+
+    pole = dlugosc * szerokosc;
+
+    printf("Pole prostokąta wynosi: %.2f\n", pole);
+
+    return 0;
+}
+```
+
+* program sprawdzający, czy podana liczba jest dodatnia, ujemna czy równa zeru:
+```php
+#include <stdio.h>
+
+int main() {
+    int liczba;
+
+    printf("Podaj liczbę całkowitą: ");
+    scanf("%d", &liczba);
+
+    if (liczba > 0) {
+        printf("Liczba jest dodatnia.\n");
+    } else if (liczba < 0) {
+        printf("Liczba jest ujemna.\n");
+    } else {
+        printf("Liczba jest równa zeru.\n");
+    }
+
+    return 0;
+}
+```
+
