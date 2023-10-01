@@ -24,7 +24,7 @@ Zajęcia i obecność:
 * ocena końcowa wyliczana jest na podstawie wzoru:
 
 ```math
-finalGrade = $\frac{$k_{1} + $k_{2}}{2}$ + p \times 0.05 - n \times 0.1
+finalGrade = \frac{k_{1} + k_{2}}{2} + p \times 0.05 - n \times 0.1
 ```
 * gdzie $k_1$ to ocena z kolokwium nr 1, $k_2$ to ocena z kolokwium nr 2, $p$ to ilość wykonanych list zadań a $n$ to ilość nienadesłanych list zadań
 * aby zaliczyć kurs, obie oceny z kolokwium muszą być pozytywne.
