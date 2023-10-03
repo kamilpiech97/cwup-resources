@@ -17,15 +17,15 @@ Zajęcia i obecność:
 * laboratoria 1-7 poruszają cztery tematy, które kończą się kolokwium w połowie semestru,
 * laboratoria 9-14 poruszają kolejne cztery tematy, które kończą się kolokwium na koniec semestru,
 * każde laboratorium będzie posiadało listę zadań która musi zostać wykonana indywidualnie oraz przesłana na wskazane repozytorium,
-* sumienne wykonanie każdej listy zadań będzie skutkowało podwyższeniem oceny końcowej lecz brak nadesłania listy będzie skutkiem odwrotnym czyli będzie obniżał ocenę końcową.
+* sumienne wykonanie każdej listy zadań będzie skutkowało podwyższeniem oceny końcowej.
 
 ### Ocena końcowa:
 * ocena końcowa wyliczana jest na podstawie wzoru:
 
 ```math
-finalGrade = \frac{k_{1} + k_{2}}{2} + p \times 0.05 - n \times 0.1
+x = \frac{k_{1} + k_{2}}{2} + p \times 0.05 - n \times 0.1
 ```
-* gdzie $k_1$ to ocena z kolokwium nr 1, $k_2$ to ocena z kolokwium nr 2, $p$ to ilość wykonanych list zadań a $n$ to ilość nienadesłanych list zadań
+* gdzie $x$ to ocena końcowa, $k_1$ to ocena z kolokwium nr 1, $k_2$ to ocena z kolokwium nr 2 a $p$ to ilość wykonanych list zadań
 * aby zaliczyć kurs, obie oceny z kolokwium muszą być pozytywne.
 
 ### Przegląd tematów w semestrze
@@ -130,4 +130,4 @@ Z poziomu narzędzi takich jak produkty JetBrains, SourceTree, GitHub Desktop cz
 ### Zadanie do wykonania
 W repozytorium proszę dodać:
 * plik `readme.md` z podanym numerem indeksu, adresem mejlowym oraz imieniem i nazwiskiem studenta;
-* katalog o nazwie `lab01` z plikiem `lab01.md`; plik powinien zawierać listę komend potrzebnych do zainicjowania repozytorium, pobrania zmian z serwera oraz wgrania nowych zmian.
+* katalog o nazwie `lab01` z plikami programu demonstracyjnego z prezentowanego pliku PDF.

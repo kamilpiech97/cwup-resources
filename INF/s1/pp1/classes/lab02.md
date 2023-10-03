@@ -8,6 +8,7 @@ Przewidywany plan zajęć kształtuje się następująco:
 * inne opcje językowe.
 
 ### IDE
+* **Dev-Cpp**
 * CLion
 * Eclipse
 * Code::Blocks
