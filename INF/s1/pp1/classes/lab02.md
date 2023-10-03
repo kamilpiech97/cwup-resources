@@ -8,7 +8,7 @@ Przewidywany plan zajęć kształtuje się następująco:
 * inne opcje językowe.
 
 ### IDE
-* **Dev-Cpp**
+* [**Dev-Cpp**](https://github.com/Embarcadero/Dev-Cpp)
 * CLion
 * Eclipse
 * Code::Blocks
