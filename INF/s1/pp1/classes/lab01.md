@@ -130,4 +130,4 @@ Z poziomu narzędzi takich jak produkty JetBrains, SourceTree, GitHub Desktop cz
 ### Zadanie do wykonania
 W repozytorium proszę dodać:
 * plik `readme.md` z podanym numerem indeksu, adresem mejlowym oraz imieniem i nazwiskiem studenta;
-* katalog o nazwie `lab01` z plikami programu demonstracyjnego z prezentowanego pliku PDF.
+* katalog o nazwie `lab01` z plikami programu demonstracyjnego z prezentowanego pliku PDF(załączony na classroom).
