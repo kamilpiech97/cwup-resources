@@ -1,0 +1,2 @@
+### Ćwiczenie nr 4:
+* Po zrealizowaniu ćwiczenia nr 3, można przejść do realizacji szkolenia z bardziej zaawansowanych rzeczy w arkuszach kalkulacyjnych - pod tym [linkiem](https://www.cloudskillsboost.google/course_templates/293?catalog_rank=%7B%22rank%22%3A1%2C%22num_filters%22%3A0%2C%22has_search%22%3Atrue%7D&search_id=15183188) znajdziemy szkolenie.

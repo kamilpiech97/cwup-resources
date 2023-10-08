@@ -11,7 +11,8 @@ Przewidywany plan zajęć kształtuje się następująco:
 Zajęcia i obecność:
 * w trakcie semestru zostanie zrealizowanych 15 zajęć laboratoryjnych,
 * obecność na nich jest obowiązkowa,
-* prowadzący akceptuje dwie nieusprawiedliwione nieobecności.
+* prowadzący akceptuje dwie nieusprawiedliwione nieobecności,
+* możliwa jest realizacja projektu na zaliczenie po wcześniejszym uzgodnieniu z prowadzącym tematu i zakresu [projekt + prezentacja projektu + sprawozdanie].
 
 ### Listy zadań:
 * laboratoria 1-7 poruszają cztery tematy, które kończą się kolokwium w połowie semestru,
