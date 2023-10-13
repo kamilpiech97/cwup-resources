@@ -3,6 +3,7 @@
 ### Agenda
 Przewidywany plan zajęć kształtuje się następująco:
 * przedstawienie opcji związanych z IDE oraz poruszanie się po nim,
+* konto JetBrains i licencja CLion,
 * przedstawienie programów demonstracyjnych,
 * uruchomienie i analiza programów demonstracyjnych,
 * inne opcje językowe.
@@ -14,6 +15,20 @@ Przewidywany plan zajęć kształtuje się następująco:
 * Code::Blocks
 * NetBeans
 * Atom
+
+### Konto JetBrains i licencja CLion
+IDE CLion to narzędzie firmy [JetBrains](https://www.jetbrains.com/), ogólnie jest to płatne narzędzie lecz jest kilka opcji żeby z niego zacząć korzystać:
+* kupić licencję
+* wykorzystać wersję trial
+* założyć konto studenckie na JetBrains aby mieć dostęp do dużej ilości IDE w tym CLion, który jest nam potrzebny.
+
+Proszę wejść na ten [link](https://www.jetbrains.com/shop/eform/students) i załóżyć konto na adres e-mail z domeny uczelnianej (@studenci.collegiumwitelona.pl).
+Następnie jeśli na komputerze nie ma IDE CLion proszę je pobrać, i tu mamy dwie opcje:
+* pobranie narzędzia [JetBrains Toolbox](https://www.jetbrains.com/lp/toolbox/), a następnie po uruchomieniu z listy aplikacji zainstalować CLion,
+* pobranie bezpośrednio [CLion](https://www.jetbrains.com/clion/download).
+
+Przy pierwszym uruchomieniu CLion'a spyta on nas o licencję i wtedy nalezy zalogować się na konto JetBrains, które wcześniej zostało utworzone przez Państwa.
+Po zakończeniu pracy/ćwiczeń zalecałbym wylogować się ze swojgo konto (z menu wybieramy **Help** > **Register**, następnie w lewym dolnym rogu będzie widoczne nasze imię i nazwisko - po kliknięciu będziemy mogli się wylogować)
 
 ### Programy demonstracyjne w C
 
@@ -72,7 +87,7 @@ int main() {
 }
 ```
 
-### Te same programy ale w języku PHP
+### Te same programy ale w języku PHP [dodatek]
 
 * program wypisujący "Hello, World!":
 
