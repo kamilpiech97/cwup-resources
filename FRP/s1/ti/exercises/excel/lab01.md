@@ -1,0 +1,6 @@
+### Ćwiczenie nr 1:
+* Proszę za pomocą swojego konta studenckiego Google wejść i zrealizować wstęp do arkuszy kalkulacyjnych zamieszczony pod tym [linkiem](https://www.cloudskillsboost.google/course_templates/196).
+Zaznaczę że  kurs jest prowadzony w języku angielskim lecz przeglądarka Google Chrome jak i inne narzędzia mają wbudowane translatory więc jeśli dla kogoś język angielski to przeszkoda - zalecem użyć translatora.
+Drugą uwagą jest to że filmy udostępnione w kursie również są zrealizowane po angielsku lecz YouTube umożliwia włączenia napisów z językiem polskim.
+* Po realizacji kursu należy sprawdzić swoją wiedzę pod tym [linkiem](https://www.cloudskillsboost.google/focuses/5828?catalog_rank=%7B%22rank%22%3A12%2C%22num_filters%22%3A1%2C%22has_search%22%3Atrue%7D&parent=catalog&search_id=15183855), znajdziecie tam szereg poleceń i zadań do wykonania w godzinę.
+Mają one na celu sprawdzić podstawy poruszania się po arkuszu kalkulacyjnym ale i również po chmurze Google i jej usługach.
