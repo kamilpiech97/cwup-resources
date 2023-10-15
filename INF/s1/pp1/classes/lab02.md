@@ -133,6 +133,12 @@ ustaw połączenie z serwerem
 pokazuje stan repozytorium
 ```
 
+Przy komendzie ```git pull origin master``` GitHub poprosi nas o dane uwierzytelniające do naszego repozytorium czyli login i hasło do konta GitHub. 
+**I tutaj ważna sprawa!** GitHub od 2021 roku nie pozwala potwierdzać logowania zwykłym hasłem do Waszego konta GitHub lecz tylko za pomocą tokenu lub klucza SSH.
+Klasyczny token możecie wygenerować pod tym [linkiem](https://github.com/settings/tokens/new), można ustawić w nim czas żywotności i listę uprawnień 
+(zaznaczyć proszę wszystko) a następnie po wygenerowaniu proszę zapisać ten token na przyszłość aby co laboratorium nie tworzyć nowego.
+
+
 #### Wprowadzanie zmian do repozytorium
 Prawdopodobnie przy pierwszych zmianach będzie trzeba dodać poświadczenia uwierzytelniające:
 ```
@@ -161,4 +167,4 @@ Z poziomu narzędzi takich jak produkty JetBrains, SourceTree, GitHub Desktop cz
 ### Zadanie do wykonania
 W repozytorium proszę dodać:
 * plik `readme.md` z podanym numerem indeksu, adresem mejlowym oraz imieniem i nazwiskiem studenta;
-* katalog o nazwie `lab01` z plikami/folderem programu demonstracyjnego z prezentowanego pliku PDF(załączony na classroom).
+* katalog o nazwie `lab01` z plikami/folderami programów demonstracyjnych i tych do wykonania z prezentowanego pliku PDF(załączony na classroom).
