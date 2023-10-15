@@ -100,8 +100,8 @@ Jeżeli nie jest zainstalowany, należy go zainstalować. Instrukcja dla użytko
 Należy utworzyć katalog repozytorium:
 ```bash
 cd /
-mkdir ppo
-cd ppo
+mkdir pp1
+cd pp1
 mkdir 123456
 cd 123456
 ```
@@ -109,8 +109,8 @@ cd 123456
 Kolejne polecenia oznaczają:
 ```
 przejdź do głównego katalogu
-utwórz katalog o nazwie ppo
-przejdź do katalogu o nazwie ppo
+utwórz katalog o nazwie pp1
+przejdź do katalogu o nazwie pp1
 utwórz katalog o nazwie 123456 (tutaj dobrze wpisać swój numer indeksu)
 przejdź do katalogu o nazwie 123456 (ponownie: indeks)
 ```
@@ -120,7 +120,7 @@ Znając adres repozytorium (np. https://github.com/collegiumwitelona/2023-inf-pp
 
 ```bash
 git init
-git remote add origin https://github.com/collegiumwitelona/2023-ppo1-twojanazwauzytkownika
+git remote add origin https://github.com/collegiumwitelona/2023-inf-pp1-twojanazwauzytkownika
 git pull origin master
 git status
 ```
@@ -162,77 +162,3 @@ Z poziomu narzędzi takich jak produkty JetBrains, SourceTree, GitHub Desktop cz
 W repozytorium proszę dodać:
 * plik `readme.md` z podanym numerem indeksu, adresem mejlowym oraz imieniem i nazwiskiem studenta;
 * katalog o nazwie `lab01` z plikami/folderem programu demonstracyjnego z prezentowanego pliku PDF(załączony na classroom).
-
-### Te same programy ale w języku PHP [dodatek]
-
-* program wypisujący "Hello, World!":
-
-```php
-<?php
-echo "Hello, World!";
-?>
-```
-
-* program obliczający pole prostokąta:
-
-```php
-<?php
-$dlugosc = 5;
-$szerokosc = 3;
-
-$pole = $dlugosc * $szerokosc;
-
-echo "Pole prostokąta wynosi: $pole";
-?>
-```
-
-* program obliczający pole prostokąta z wczytywaniem zmiennych z konsoli:
-
-```php
-<?php
-if (count($argv) != 3) {
-    echo "Użycie: php program.php <długość> <szerokość>\n";
-    exit(1);
-}
-
-$dlugosc = floatval($argv[1]);
-$szerokosc = floatval($argv[2]);
-
-$pole = $dlugosc * $szerokosc;
-
-echo "Pole prostokąta wynosi: $pole\n";
-?>
-```
-
-lub
-
-```php
-<?php
-echo "Podaj długość prostokąta: ";
-$dlugosc = floatval(trim(fgets(STDIN)));
-
-echo "Podaj szerokość prostokąta: ";
-$szerokosc = floatval(trim(fgets(STDIN)));
-
-$pole = $dlugosc * $szerokosc;
-
-echo "Pole prostokąta wynosi: $pole\n";
-?>
-```
-
-* program sprawdzający, czy podana liczba jest dodatnia, ujemna lub równa zeru po wczytaniu liczby od użytkownika:
-
-```php
-<?php
-echo "Podaj liczbę: ";
-$liczba = floatval(trim(fgets(STDIN)));
-
-if ($liczba > 0) {
-    echo "Liczba jest dodatnia.\n";
-} elseif ($liczba < 0) {
-    echo "Liczba jest ujemna.\n";
-} else {
-    echo "Liczba jest równa zeru.\n";
-}
-?>
-```
