@@ -129,14 +129,14 @@ Kolejne polecenia oznaczają:
 ```
 oznacz folder jako repozytorium git
 ustaw połączenie z serwerem
-ściąga dane z serwera
+ściąga dane z serwera (jeśli repozytorium jest puste, możecie dostać błąd, wtedy proszę przejść do kroku instrukcji poniżej - 'Wprowadzanie zmian do repozytorium')
 pokazuje stan repozytorium
 ```
 
-Przy komendzie ```git pull origin master``` GitHub poprosi nas o dane uwierzytelniające do naszego repozytorium czyli login i hasło do konta GitHub. 
+Przy komendzie ```git pull origin master``` lub ```git push origin master``` GitHub poprosi nas o dane uwierzytelniające do naszego repozytorium czyli login i hasło do konta GitHub. 
 **I tutaj ważna sprawa!** GitHub od 2021 roku nie pozwala potwierdzać logowania zwykłym hasłem do Waszego konta GitHub lecz tylko za pomocą tokenu lub klucza SSH.
 Klasyczny token możecie wygenerować pod tym [linkiem](https://github.com/settings/tokens/new), można ustawić w nim czas żywotności i listę uprawnień 
-(zaznaczyć proszę wszystko) a następnie po wygenerowaniu proszę zapisać ten token na przyszłość aby co laboratorium nie tworzyć nowego.
+(zaznaczyć proszę wszystko) a następnie po jego wygenerowaniu proszę sobie go zapisać.
 
 
 #### Wprowadzanie zmian do repozytorium
