@@ -1,7 +1,7 @@
 ### Zadanie na ocenę:
  
 W [folderze](https://drive.google.com/drive/folders/14SMoExtYHCAyPIriSClO--kAnpi85Vk4?usp=sharing) na dysku Google znajdziemy 4 pliki, które są arkuszami Excel:
-* **BTCUSD** arkusz który posiada kurs Bitcoina do dolara z wybranych 3 miesięcy,
+* **BTCUSD** arkusz który posiada kurs dolara do Bitcoina z wybranych 3 miesięcy,
 * **EURPLN** arkusz który posiada kurs polskiego złotego w odniesieniu do euro z tego samego zakresu,
 * **USDPLN** arkusz który posiada kurs polskiego złotego w odniesieniu do dolara z tego samego zakresu,
 * **CHFKPLN** arkusz który posiada kurs polskiego złotego w odniesieniu do franka szwajcarskiego z tego samego zakresu.
