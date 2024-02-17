@@ -8,7 +8,7 @@ Przewidywany plan zajęć kształtuje się następująco:
 
 ### Zasady zaliczenia przedmiotu
 Zajęcia i obecność:
-* w trakcie semestru zostanie zrealizowanych 8 zajęć ćwiczeniowcyh,
+* w trakcie semestru zostanie zrealizowanych 8 zajęć ćwiczeniowych,
 * obecność na nich jest obowiązkowa,
 * prowadzący akceptuje jedną nieusprawiedliwione nieobecności,
 * na zajęciach będzie realizowany kurs Python na platformie Netacad.
