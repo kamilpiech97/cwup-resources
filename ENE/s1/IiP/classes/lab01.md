@@ -11,7 +11,7 @@ Zajęcia i obecność:
 * w trakcie semestru zostanie zrealizowanych 8 zajęć ćwiczeniowych,
 * obecność na nich jest obowiązkowa,
 * prowadzący akceptuje jedną nieusprawiedliwione nieobecności,
-* na zajęciach będzie realizowany kurs Python na platformie Netacad.
+* na zajęciach będzie realizowany kurs [Python](https://www.netacad.com/courses/programming/pcap-programming-essentials-python) na platformie Netacad.
 
 ### Ocena końcowa:
 * ocena końcowa wyliczana jest na podstawie wyników z testów cząstkowych oraz testu końcowego na platformie Netacad.
