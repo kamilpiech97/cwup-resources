@@ -23,16 +23,16 @@ Zajęcia i obecność:
 ### Przegląd tematów w semestrze
 1. Wprowadzenie do nowoczesnych narzędzi informatycznych pracy grupowej. Pojęcie chmury
    obliczeniowej i zasady działania aplikacji w modelu chmurowym. Przegląd najpopularniejszych
-   rozwiązań (1h).
+   rozwiązań.
 2. Wybrane narzędzia chmurowe pracy grupowej: dysk w chmurze, spotkania online, edytor tekstu, arkusz
    kalkulacyjny, platforma edukacyjna. Współdzielenie dokumentów, zarządzanie dostępem oraz
-   wersjonowanie (6h).
+   wersjonowanie.
 3. Pojęcie sztucznej inteligencji, ogólne zasady działania narzędzi na niej bazujących. Przegląd
    najpopularniejszych rozwiązań wspierających efektywność pracy twórczej, edukacji. Praktyczne
    wykorzystanie popularnych narzędzi (generatywne modele językowe, modele generujące grafikę i multimedia), konstruowanie zapytań. 
-   Zasady etycznego wykorzystania AI w pracy twórczej i nauce (6h).
-4. Podstawowe zasady cyberhigieny (1h).
-5. Zaliczenie (1h).
+   Zasady etycznego wykorzystania AI w pracy twórczej i nauce.
+4. Podstawowe zasady cyberhigieny.
+5. Zaliczenie.
 
 ### Literatura podstawowa
 * K. Marzec, Narzędzia Google dla e-commerce. Wydanie II poszerzone, Helion 2018.
