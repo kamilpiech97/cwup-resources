@@ -116,7 +116,7 @@ przejdź do katalogu o nazwie 123456 (ponownie: indeks)
 ```
 
 #### Inicjalizacja repozytorium:
-Znając adres repozytorium (np. https://github.com/collegiumwitelona/2023-inf-pp1-twojanazwauzytkownika) należy wykonać następujące polecenia:
+Znając adres repozytorium (np. https://github.com/collegiumwitelona/2024-inf-pp1-3(1)-twojanazwauzytkownika) należy wykonać następujące polecenia:
 
 ```bash
 git init
