@@ -1,4 +1,4 @@
-## Wprowadzenie do pracowni podstaw programowania
+## Wprowadzenie do pracowni alogrytmów i struktur danych
 
 ### Agenda
 Przewidywany plan zajęć kształtuje się następująco:
@@ -8,7 +8,7 @@ Przewidywany plan zajęć kształtuje się następująco:
 
 ### Zasady zaliczenia przedmiotu
 Zajęcia i obecność:
-* w trakcie semestru zostanie zrealizowanych 15 zajęć laboratoryjnych,
+* w trakcie semestru zostanie zrealizowanych 15 zajęć projektowych,
 * obecność na nich jest obowiązkowa,
 * prowadzący akceptuje dwie nieusprawiedliwione nieobecności.
 
