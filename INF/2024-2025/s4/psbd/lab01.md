@@ -14,7 +14,7 @@ Zajęcia i obecność:
 
 Zaliczenie:
 * zaliczenie przedmiotu odbywa się na podstawie oceny z projektu,
-* wymagania projektu zostaną przedstawione w osobnym dokumencie,
+* wymagania projektu zostaną przedstawione w osobnym dokumencie.
 
 ### Ocena końcowa:
 * ocena uzyskana z projektu,
