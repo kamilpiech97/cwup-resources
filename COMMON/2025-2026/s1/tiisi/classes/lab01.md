@@ -12,13 +12,12 @@ Zajęcia i obecność:
 * w trakcie semestru zostanie zrealizowanych 8 zajęć laboratoryjnych,
 * obecność na nich jest obowiązkowa,
 * prowadzący akceptuje dwie nieusprawiedliwione nieobecności,
-* na zajęciach będą realizowane ćwiczenia,
-* na zaliczenie będzie realizowana praca projektowa - **prezentacja**.
+* na zajęciach będą realizowane listy ćwiczeń, które będą podstawą do oceny końcowej,
+* listy ćwiczeń będą realizowane indywidualnie,
+* list ćwiczeń przewidzainych jest mniej więcej tyle ile jest zajęć laboratoryjnych.
 
 ### Ocena końcowa:
-* ocena końcowa z przedmiotu będzie zależała od oceny z pracy projektowej,
-* praca projektowa będzie realizowana w grupach 2-3 osobowych,
-* realizacja ćwiczeń i obecność na zajęciach może wpłynąć na ocenę końcową.
+* ocena końcowa będzie średnią ocen z ćwiczeń laboratoryjnych,
 
 ### Przegląd tematów w semestrze
 1. Wprowadzenie do nowoczesnych narzędzi informatycznych pracy grupowej. Pojęcie chmury
