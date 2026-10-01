@@ -17,8 +17,7 @@ Forma zaliczenia laboratorium: **zaliczenie z oceną** (zgodnie z kartą modułu
 
 Elementy oceny:
 * sprawozdania z zajęć 1-8 (skrypty `.sql`, eksporty ERD) — oddawane po każdym bloku,
-* ocena indywidualnego projektu aplikacji z bazą danych (zajęcia 9-15),
-* obrona ustna projektu na ostatnich zajęciach (zajęcia 14-15).
+* ocena indywidualnego projektu aplikacji z bazą danych wraz z obroną ustną na ostatnich zajęciach (zajęcia 9-15).
 
 ### Oddawanie zadań — repozytorium git
 * zadania z każdego bloku laboratoryjnego oddawane są w repozytorium git studenta — nie mailem, nie na pendrive,
@@ -28,7 +27,7 @@ Elementy oceny:
 * przykładowy workflow (założenie repo, struktura, commity, ściąga z komend): [`resources/git-workflow.md`](resources/git-workflow.md).
 
 ### Alternatywna ścieżka zaliczenia — projekt zamiast laboratorium
-Zamiast udziału w 15 blokach laboratoryjnych, laboratorium można zaliczyć w całości jednym, samodzielnie realizowanym projektem — analogicznie do rozwiązania stosowanego w innych przedmiotach na kierunku. **Nie dotyczy to wykładu** — egzamin z wykładu obowiązuje niezależnie od wybranej ścieżki, zgodnie z kartą modułu.
+Zamiast udziału w 15 blokach laboratoryjnych, laboratorium można zaliczyć w całości jednym, samodzielnie realizowanym projektem.
 
 * decyzję o wyborze tej ścieżki należy zgłosić prowadzącemu **do końca 2-3 zajęć**,
 * pełne wymagania, harmonogram checkpointów i kryteria oceny: [`zaliczenie-projektowe.md`](zaliczenie-projektowe.md),
