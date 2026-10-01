@@ -1,4 +1,4 @@
-## Wprowadzenie do przedmiotu Bazy danych. Środowisko pracy (Docker + pgAdmin)
+## Wprowadzenie do laboratorium z baz danych. Środowisko pracy (Docker + pgAdmin)
 
 ### Agenda
 Przewidywany plan zajęć kształtuje się następująco:
