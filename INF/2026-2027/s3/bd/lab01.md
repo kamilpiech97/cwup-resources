@@ -18,7 +18,21 @@ Forma zaliczenia laboratorium: **zaliczenie z oceną** (zgodnie z kartą modułu
 Elementy oceny:
 * sprawozdania z zajęć 1-8 (skrypty `.sql`, eksporty ERD) — oddawane po każdym bloku,
 * ocena indywidualnego projektu aplikacji z bazą danych (zajęcia 9-15),
-* obrona ustna projektu na ostatnich zajęciach (zajęcia 14-15),
+* obrona ustna projektu na ostatnich zajęciach (zajęcia 14-15).
+
+### Oddawanie zadań — repozytorium git
+* zadania z każdego bloku laboratoryjnego oddawane są w repozytorium git studenta — nie mailem, nie na pendrive,
+* każdy student zakłada własne repozytorium (np. na GitHub/GitLab) i udostępnia je prowadzącemu na początku semestru,
+* commity powinny być robione na bieżąco, po każdym bloku — commit z całym semestrem na koniec nie będzie uznany,
+* strukturę katalogów i nazewnictwo repo ustala prowadzący na pierwszych zajęciach,
+* przykładowy workflow (założenie repo, struktura, commity, ściąga z komend): [`resources/git-workflow.md`](resources/git-workflow.md).
+
+### Alternatywna ścieżka zaliczenia — projekt zamiast laboratorium
+Zamiast udziału w 15 blokach laboratoryjnych, laboratorium można zaliczyć w całości jednym, samodzielnie realizowanym projektem — analogicznie do rozwiązania stosowanego w innych przedmiotach na kierunku. **Nie dotyczy to wykładu** — egzamin z wykładu obowiązuje niezależnie od wybranej ścieżki, zgodnie z kartą modułu.
+
+* decyzję o wyborze tej ścieżki należy zgłosić prowadzącemu **do końca 2-3 zajęć**,
+* pełne wymagania, harmonogram checkpointów i kryteria oceny: [`zaliczenie-projektowe.md`](zaliczenie-projektowe.md),
+* wybór jest wiążący na cały semestr — nie ma przełączania się między ścieżkami w trakcie.
 
 ### Przegląd tematów w semestrze
 1. Wprowadzenie do przedmiotu. Środowisko pracy (Docker + pgAdmin)
@@ -37,6 +51,15 @@ Elementy oceny:
 14. Projekt — interfejs użytkownika, część 4 (dopracowanie)
 15. Testowanie, weryfikacja i obrona projektu
 
+### Oryginalna lista z karty modułu
+1. Przedstawienie treści karty modułu. Zapoznanie z programem umożliwiającym interakcyjną pracę z bazą danych — 4h
+2. Edycja i wykonywanie zapytań selekcji i projekcji w języku SQL — 4h
+3. Modyfikacja schematów bazy danych, modyfikacja danych w SQL — 4h
+4. Projektowanie diagramów ERD w dedykowanych narzędziach — 4h
+5. Zapoznanie z możliwościami tworzenia aplikacji z bazą danych w określonym środowisku — 4h
+6. Zaprojektowanie i wykonanie interfejsu użytkownika systemu z bazą danych — 8h
+7. Testowanie i weryfikacja aplikacji z bazą danych — 2h
+
 ### Literatura
 * Hector Garcia-Molina, Jeffrey D. Ullman, Jennifer Widom, *Systemy baz danych. Kompletny podręcznik*, Wydanie II, Helion 2011
 * P. Beynon-Davies, *Systemy baz danych*, WNT, Warszawa 2003
@@ -48,84 +71,7 @@ Elementy oceny:
 ---
 
 ### Środowisko pracy: Docker + pgAdmin
-
-Na zajęciach standardem jest praca w kontenerach Docker — jedno środowisko dla wszystkich, mniej problemów z "u mnie działa". Instalacja natywna PostgreSQL jest dopuszczalna dla chętnych, ale **bez wsparcia technicznego na zajęciach** — w razie problemów wracamy do Dockera.
-
-#### Wymagania wstępne
-* zainstalowany [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows/Mac) lub Docker Engine + docker-compose-plugin (Linux),
-* sprawdzić instalację:
-```bash
-docker --version
-docker compose version
-```
-
-#### Plik `docker-compose.yml`
-W katalogu kursu (`bd/`) znajduje się gotowy plik `docker-compose.yml`:
-```yaml
-services:
-  db:
-    image: postgres:16-alpine
-    container_name: bd_postgres
-    environment:
-      POSTGRES_USER: student
-      POSTGRES_PASSWORD: student
-      POSTGRES_DB: cwiczenia
-    ports:
-      - "5432:5432"
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: bd_pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: student@example.com
-      PGADMIN_DEFAULT_PASSWORD: student
-    ports:
-      - "8080:80"
-    depends_on:
-      - db
-
-volumes:
-  db_data:
-```
-
-#### Uruchomienie
-```bash
-docker compose up -d
-```
-Sprawdzenie, że oba kontenery działają:
-```bash
-docker compose ps
-```
-
-#### Połączenie pgAdmin z bazą
-1. Otwórz przeglądarkę: [http://localhost:8080](http://localhost:8080), zaloguj się (`student@example.com` / `student`).
-2. **Add New Server** → zakładka *General*: nazwa np. `bd-lokalnie`.
-3. Zakładka *Connection*:
-   * Host name/address: `db` (nazwa usługi z docker-compose, nie `localhost`!)
-   * Port: `5432`
-   * Username: `student`
-   * Password: `student`
-4. Zapisz — w drzewie po lewej pojawi się baza `cwiczenia`.
-
-#### Pierwsze zapytanie
-W pgAdmin: PPM na bazę `cwiczenia` → **Query Tool**:
-```sql
-SELECT version();
-```
-
-Alternatywa z linii poleceń (psql wewnątrz kontenera):
-```bash
-docker exec -it bd_postgres psql -U student -d cwiczenia -c "\dt"
-```
-
-#### Zatrzymanie/restart środowiska
-```bash
-docker compose stop      # zatrzymuje kontenery, dane zostają
-docker compose down      # usuwa kontenery, wolumin z danymi zostaje
-docker compose down -v   # usuwa też dane (pełny reset od zera)
-```
+Pełna instrukcja konfiguracji środowiska (Docker, `docker-compose.yml`, połączenie pgAdmin, pierwsze zapytanie): [`resources/srodowisko-docker.md`](resources/srodowisko-docker.md).
 
 ### Zadanie do wykonania
 * uruchomić środowisko (`docker compose up -d`),
