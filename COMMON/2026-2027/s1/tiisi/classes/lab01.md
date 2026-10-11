@@ -9,9 +9,9 @@ Przewidywany plan zajęć kształtuje się następująco:
 
 ### Zasady zaliczenia przedmiotu
 Zajęcia i obecność:
-* w trakcie semestru zostanie zrealizowanych 8 zajęć laboratoryjnych,
+* w trakcie semestru zostanie zrealizowanych 5 zajęć laboratoryjnych,
 * obecność na nich jest obowiązkowa,
-* prowadzący akceptuje dwie nieusprawiedliwione nieobecności,
+* prowadzący akceptuje jedną nieusprawiedliwioną nieobecność,
 * na zajęciach będą realizowane listy ćwiczeń, które będą podstawą do oceny końcowej,
 * listy ćwiczeń będą realizowane indywidualnie,
 * list ćwiczeń przewidzainych jest mniej więcej tyle ile jest zajęć laboratoryjnych.
