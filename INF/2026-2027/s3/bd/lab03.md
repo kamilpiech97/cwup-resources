@@ -30,6 +30,83 @@ SELECT COUNT(*) FROM produkty;   -- 150
 SELECT COUNT(*) FROM zamowienia; -- 1000
 ```
 
+### Wyjaśnienie pojęć
+Wyniki w tej sekcji dotyczą tabeli `filmy` z sekcji "Przykłady demonstracyjne" (8 filmów).
+
+#### Projekcja i selekcja
+Zapytanie `SELECT` zawęża tabelę na dwa sposoby:
+* **projekcja** wybiera kolumny, czyli to, co wpisujesz po `SELECT`,
+* **selekcja** wybiera wiersze, czyli warunek po `WHERE`.
+
+Zapis `SELECT *` zwraca wszystkie kolumny. Wygodnie się nim ogląda dane, ale w gotowych zapytaniach lepiej wymieniać kolumny, które są potrzebne.
+
+#### Warunki w WHERE
+`WHERE` sprawdza warunek dla każdego wiersza i zostawia te, dla których jest prawdziwy.
+
+| Operator | Znaczenie | Przykład | Wynik |
+|---|---|---|---|
+| `=`, `<>` | równe, różne | `gatunek <> 'Dramat'` | 5 filmów |
+| `>`, `<`, `>=`, `<=` | porównanie | `ocena > 8.0` | 5 filmów |
+| `IN` | jedna z wartości na liście | `gatunek IN ('Dramat', 'Animacja')` | 5 filmów |
+| `BETWEEN` | wartość w przedziale | `rok_produkcji BETWEEN 1995 AND 2005` | 5 filmów |
+| `LIKE` | dopasowanie do wzorca tekstu | `tytul LIKE 'S%'` | 2 filmy |
+
+Na co uważać:
+* `BETWEEN` obejmuje oba końce przedziału, więc film z 1995 r. (Toy Story) spełnia warunek powyżej.
+* `NOT` odwraca warunek: `NOT BETWEEN`, `NOT IN`, `NOT LIKE`.
+* Tekst i daty zapisuje się w pojedynczych apostrofach. Podwójne cudzysłowy oznaczają nazwę kolumny, więc `gatunek = "Dramat"` kończy się błędem `column "Dramat" does not exist`.
+* Porównanie tekstu jest dokładne, dlatego `'Wrocław'` i `'Wroclaw'` to dwie różne wartości. Jeśli zapytanie zwraca zaskakująco mało wierszy, sprawdź przez `SELECT DISTINCT`, jak dane są zapisane.
+
+#### Wzorce LIKE
+| Znak | Znaczenie | Przykład | Pasuje |
+|---|---|---|---|
+| `%` | dowolna liczba dowolnych znaków, także zero | `'%x'` | Matrix |
+| `%` po obu stronach | tekst w dowolnym miejscu | `'%an%'` | Titanic, Skazani na Shawshank |
+| `_` | dokładnie jeden dowolny znak | `'S_rek'` | Shrek |
+
+W PostgreSQL `LIKE` rozróżnia wielkość liter: `LIKE 's%'` nie znajdzie żadnego filmu. Bez rozróżniania wielkości liter działa `ILIKE`.
+
+#### Łączenie warunków
+`AND` wymaga spełnienia obu warunków, a `OR` co najmniej jednego. `AND` ma wyższy priorytet, tak jak mnożenie względem dodawania, więc przy mieszaniu ich używaj nawiasów:
+
+| Warunek | Jak czyta go baza | Wynik |
+|---|---|---|
+| `gatunek = 'Animacja' OR gatunek = 'Dramat' AND ocena > 9` | wszystkie animacje oraz dramaty z oceną powyżej 9 | Shrek, Skazani na Shawshank, Toy Story |
+| `(gatunek = 'Animacja' OR gatunek = 'Dramat') AND ocena > 9` | animacje i dramaty, ale tylko z oceną powyżej 9 | Skazani na Shawshank |
+
+#### NULL
+`NULL` oznacza brak wartości, a nie zero ani pusty tekst. Porównanie z `NULL` nigdy nie jest prawdziwe, nawet `ocena = NULL`, dlatego taki warunek nie zwróci żadnego wiersza. Do sprawdzania służą `IS NULL` i `IS NOT NULL`.
+
+Wiersz z `NULL` w kolumnie `ocena` nie przejdzie ani przez `ocena > 8`, ani przez `NOT ocena > 8`.
+
+#### Sortowanie i ograniczanie wyników
+`ORDER BY` ustala kolejność wierszy: `ASC` rosnąco (domyślnie) lub `DESC` malejąco. Bez `ORDER BY` baza nie gwarantuje żadnej kolejności.
+
+Można sortować po kilku kolumnach. Kolejna kolumna rozstrzyga remisy w poprzedniej: Shrek i Titanic mają tę samą ocenę 7.9, więc `ORDER BY ocena DESC, tytul ASC` ustawia ich alfabetycznie.
+
+W PostgreSQL `NULL` przy sortowaniu `DESC` trafia domyślnie na początek. Film bez oceny znalazłby się więc nad najlepszym filmem, o ile nie dodasz `NULLS LAST`.
+
+`LIMIT` określa, ile wierszy zwrócić, a `OFFSET`, ile pominąć na początku. Razem służą m.in. do stronicowania: strona 3 po 10 wierszy to `LIMIT 10 OFFSET 20`. Używaj ich z `ORDER BY`, bo inaczej nie wiadomo, które wiersze zostaną wybrane.
+
+#### Aliasy
+`AS` nadaje kolumnie lub wyrażeniu inną nazwę w wyniku, np. `tytul AS film`. Nazwa ze spacją lub polskimi znakami wymaga podwójnych cudzysłowów: `tytul AS "Tytuł filmu"`.
+
+#### Kolejność wykonywania
+Baza przetwarza zapytanie w innej kolejności, niż je zapisujemy:
+
+`FROM` → `WHERE` → `SELECT` → `ORDER BY` → `LIMIT`
+
+Dlatego alias z `SELECT` działa w `ORDER BY`, ale nie w `WHERE`. Zapytanie `SELECT tytul AS film FROM filmy WHERE film = 'Matrix'` kończy się błędem `column "film" does not exist`.
+
+#### Inne konstrukcje z zadań
+| Konstrukcja | Działanie | Przykład | Wynik |
+|---|---|---|---|
+| `SELECT DISTINCT` | usuwa powtórzone wiersze z wyniku | `SELECT DISTINCT gatunek FROM filmy` | Animacja, Dramat, Sci-Fi |
+| `UPPER(tekst)` | zamienia litery na wielkie | `UPPER('Matrix')` | MATRIX |
+| `ROUND(liczba)` | zaokrągla do całości lub podanej liczby miejsc | `ROUND(8.85)`, `ROUND(8.85, 1)` | 9, 8.9 |
+| `CURRENT_DATE` | dzisiejsza data | `CURRENT_DATE - INTERVAL '30 days'` | data sprzed 30 dni |
+| odejmowanie dat | liczba dni między datami | `CURRENT_DATE - DATE '2026-10-01'` | liczba dni od tej daty |
+
 ### Przykłady demonstracyjne
 Poniższe przykłady działają na osobnej, malutkiej tabeli `filmy`.
 
@@ -106,7 +183,7 @@ ORDER BY ocena DESC;
 ### Zadania do wykonania
 Napisz zapytania SQL realizujące poniższe polecenia — **na bazie "sklep"**, tabele: `produkty`, `klienci`, `zamowienia`. Skorzystaj z konstrukcji pokazanych wyżej na `filmy`, ale zastosuj je do właściwych kolumn/tabel sklepu:
 1. Wyświetl nazwy i ceny wszystkich produktów drożej niż 200 zł, posortowane malejąco po cenie.
-2. Wyświetl imię, nazwisko i miasto klientów z Wrocławia lub Poznania.
+2. Wyświetl imię, nazwisko i miasto klientów z Wrocławia lub Poznania (w bazie zapisane bez polskich znaków: `'Wroclaw'`, `'Poznan'`).
 3. Wyświetl 10 najtańszych produktów (nazwa, cena).
 4. Wyświetl zamówienia o statusie `'anulowane'`, posortowane po dacie zamówienia (najnowsze pierwsze).
 5. Wyświetl produkty, których nazwa zaczyna się na literę „P”.

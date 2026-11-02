@@ -7,6 +7,101 @@
 
 Praca dalej na wspólnej bazie "sklep" (z lab03).
 
+### Wyjaśnienie pojęć
+Wyjaśnienia opierają się na danych z tabel `dzialy` i `pracownicy`, które utworzysz w sekcji "Przykłady demonstracyjne":
+
+| `pracownicy.imie` | `pracownicy.dzial_id` | `pracownicy.pensja` |
+|---|---|---|
+| Anna | 1 (IT) | 8500 |
+| Piotr | 1 (IT) | 9200 |
+| Marta | 2 (Sprzedaz) | 6500 |
+| Tomasz | 2 (Sprzedaz) | 7100 |
+| Ewa | 3 (Marketing) | 6000 |
+| Krzysztof | `NULL` | 5500 |
+
+W tabeli `dzialy` jest jeszcze czwarty dział, HR (`id = 4`), w którym nikt nie pracuje.
+
+#### Łączenie tabel (JOIN)
+Dane są rozbite na osobne tabele, żeby się nie powtarzały: `pracownicy` przechowuje tylko numer działu (`dzial_id`), a jego nazwa jest w `dzialy`. `JOIN` skleja wiersze obu tabel w jeden wynik, a warunek po `ON` określa, które wiersze do siebie pasują. Zwykle jest to porównanie klucza obcego z kluczem głównym: `p.dzial_id = d.id`.
+
+**`INNER JOIN`** (samo `JOIN` znaczy to samo) zwraca tylko wiersze, które mają dopasowanie po obu stronach. Krzysztof odpada, bo nie ma działu, a HR odpada, bo nie ma pracowników. Wynik ma 5 wierszy.
+
+**`LEFT JOIN`** zwraca wszystkie wiersze z tabeli po lewej stronie (tej z `FROM`), nawet bez dopasowania. Brakujące kolumny z prawej tabeli przyjmują wartość `NULL`. Kolejność tabel ma tu znaczenie:
+
+| Zapytanie | Kto zostaje mimo braku dopasowania | Liczba wierszy |
+|---|---|---|
+| `FROM pracownicy p LEFT JOIN dzialy d` | Krzysztof (dział = `NULL`) | 6 |
+| `FROM dzialy d LEFT JOIN pracownicy p` | HR (pracownik = `NULL`) | 6 |
+
+Skoro brak dopasowania daje `NULL`, `LEFT JOIN` z warunkiem `IS NULL` znajduje wiersze, które nie mają odpowiednika w drugiej tabeli, np. działy bez pracowników:
+```sql
+SELECT d.nazwa
+FROM dzialy d
+LEFT JOIN pracownicy p ON p.dzial_id = d.id
+WHERE p.id IS NULL;
+```
+
+#### Funkcje agregujące
+Funkcja agregująca zamienia wiele wierszy w jedną wartość:
+
+| Funkcja | Co liczy | Wynik dla wszystkich pracowników |
+|---|---|---|
+| `COUNT(*)` | liczbę wierszy | 6 |
+| `COUNT(dzial_id)` | liczbę wartości innych niż `NULL` w kolumnie | 5 |
+| `SUM(pensja)` | sumę | 42800 |
+| `AVG(pensja)` | średnią | 7133.33 |
+| `MAX(pensja)` | największą wartość | 9200 |
+| `MIN(pensja)` | najmniejszą wartość | 5500 |
+
+Funkcje agregujące pomijają `NULL`. Wyjątkiem jest `COUNT(*)`, które liczy całe wiersze. Ma to znaczenie przy `LEFT JOIN`: dział HR ma jeden wiersz wyniku (z `NULL` w kolumnach pracownika), więc `COUNT(*)` zwróci dla niego 1, a `COUNT(p.id)` poprawne 0.
+
+#### Grupowanie (GROUP BY)
+Bez `GROUP BY` funkcja agregująca liczy jedną wartość dla całej tabeli. `GROUP BY` dzieli wiersze na grupy o tej samej wartości wskazanej kolumny i liczy wartość osobno dla każdej grupy:
+```sql
+SELECT dzial_id, COUNT(*) AS liczba, SUM(pensja) AS suma, AVG(pensja) AS srednia
+FROM pracownicy
+GROUP BY dzial_id;
+```
+
+| `dzial_id` | `liczba` | `suma` | `srednia` |
+|---|---|---|---|
+| 1 | 2 | 17700 | 8850 |
+| 2 | 2 | 13600 | 6800 |
+| 3 | 1 | 6000 | 6000 |
+| `NULL` | 1 | 5500 | 5500 |
+
+Każda kolumna w `SELECT` musi być wymieniona w `GROUP BY` albo znajdować się w funkcji agregującej. Grupa IT ma dwóch pracowników, więc baza nie wie, które imię miałaby pokazać dla `SELECT dzial_id, imie, COUNT(*)` i zgłasza błąd:
+```
+ERROR:  column "pracownicy.imie" must appear in the GROUP BY clause or be used in an aggregate function
+```
+
+#### Filtrowanie grup (HAVING)
+`WHERE` filtruje pojedyncze wiersze **przed** grupowaniem, a `HAVING` filtruje całe grupy **po** grupowaniu. Dlatego warunek na wyniku funkcji agregującej może się znaleźć tylko w `HAVING`. Użycie go w `WHERE` kończy się błędem:
+```
+ERROR:  aggregate functions are not allowed in WHERE
+```
+
+Oba filtry można łączyć. Poniższe zapytanie zwraca działy, w których co najmniej dwie osoby zarabiają ponad 7000:
+```sql
+SELECT dzial_id, COUNT(*) AS liczba
+FROM pracownicy
+WHERE pensja > 7000
+GROUP BY dzial_id
+HAVING COUNT(*) > 1;
+```
+
+Krok po kroku:
+1. `WHERE` zostawia Annę, Piotra i Tomasza.
+2. `GROUP BY` tworzy dwie grupy: dział 1 (2 osoby) i dział 2 (1 osoba).
+3. `HAVING` zostawia tylko dział 1.
+
+#### Kolejność wykonywania zapytania
+Baza przetwarza zapytanie w innej kolejności, niż je zapisujemy:
+
+`FROM` i `JOIN` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT`
+
+Ta kolejność tłumaczy, dlaczego `WHERE` nie widzi wyników agregacji: w tym momencie grupy jeszcze nie istnieją. Z tego samego powodu alias z `SELECT` można wykorzystać w `ORDER BY`, ale nie w `WHERE` ani w `HAVING`.
+
 ### Przykłady demonstracyjne
 Poniższe przykłady działają na osobnych, małych tabelach `dzialy`/`pracownicy`.
 
