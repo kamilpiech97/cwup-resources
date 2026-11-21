@@ -17,7 +17,7 @@ Forma zaliczenia laboratorium: **zaliczenie z oceną** (zgodnie z kartą modułu
 
 Elementy oceny:
 * sprawozdania z zajęć 1-8 (skrypty `.sql`, eksporty ERD) — oddawane po każdym bloku,
-* ocena indywidualnego projektu aplikacji z bazą danych wraz z obroną ustną na ostatnich zajęciach (zajęcia 9-15).
+* ocena indywidualnego projektu aplikacji z bazą danych wraz z obroną ustną na ostatnich zajęciach (zajęcia 9-15) — wymagania: [`projekt-aplikacji.md`](projekt-aplikacji.md).
 
 ### Oddawanie zadań — repozytorium git
 * zadania z każdego bloku laboratoryjnego oddawane są w repozytorium git studenta — nie mailem, nie na pendrive,
